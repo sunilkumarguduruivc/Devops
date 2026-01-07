@@ -15,10 +15,10 @@ LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo "ERROR: $2  failed."
+        echo "ERROR: $2 installation failed."
         exit 1
     else
-        echo "$2  successfully."
+        echo "$2 installed successfully."
     fi
 }
 CHECK_ROOT(){

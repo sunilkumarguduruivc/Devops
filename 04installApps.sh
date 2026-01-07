@@ -9,7 +9,7 @@ fi
 
 dnf list installed mysql
 
-if [$? -ne 0 ] ; then 
+if [ $? -ne 0 ] ; then 
     echo "MYQL is not installed"
 else
     dnf install mysql -y
@@ -22,7 +22,7 @@ else
 fi
 dnf list installed git
 
-if [$? -ne 0 ] ; then 
+if [ $? -ne 0 ] ; then 
     echo "GIT is not installed"
 else
     dnf install git -y

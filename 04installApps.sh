@@ -19,6 +19,7 @@ else
     else
         echo "MYSQL installed successfully."
     fi
+fi
 dnf list installed git
 
 if [$? -ne 0 ] ; then 
@@ -32,4 +33,3 @@ else
         echo "GIT installed successfully."
     fi
 fi
-

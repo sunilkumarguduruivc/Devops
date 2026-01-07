@@ -1,15 +1,15 @@
 #!/bin/bash
 
 
-USERID=$(id-u)
-if [$USEDID -ne 0]; then
+USERID=$(id -u) 
+if [ $USERID -ne 0 ]; then
     echo "ERROR: You must have root privileges to run this script."
     exit 1
 fi
 
 dnf install mysqll -y
 
-if [$? -ne 0]; then
+if [ $? -ne 0 ]; then
     echo "ERROR: MYSQL installation failed."
     exit 1
 else
@@ -17,7 +17,7 @@ else
 fi
 
 dnf install git -y
-if [$? -ne 0]; then
+if [ $? -ne 0 ]; then
     echo "ERROR: GIT installation failed."
     exit 1
 else

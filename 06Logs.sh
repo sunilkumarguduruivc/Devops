@@ -17,7 +17,7 @@ VALIDATE(){
     fi
 }
 
-echo "Script started execution at: $TIMESTAMP" &>> $LOG_FILE_NAME
+echo "Script started execution at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
 if [ $USERID -ne 0 ]; then
     echo "ERROR: You must have root privileges to run this script."
@@ -25,21 +25,21 @@ if [ $USERID -ne 0 ]; then
 fi
 
 
-dnf list installed mysql &>> $LOG_FILE_NAME
+dnf list installed mysql &>>$LOG_FILE_NAME
 
 if [ $? -ne 0 ] ; then 
     echo "MYQL is not installed"
-    dnf install mysql -y &>> $LOG_FILE_NAME 
+    dnf install mysql -y &>>$LOG_FILE_NAME 
     VALIDATE $? "MYSQL"
 else
     echo "MYSQL is already installed"
 fi
 
-dnf list installed git &>> $LOG_FILE_NAME
+dnf list installed git &>>$LOG_FILE_NAME
 
 if [ $? -ne 0 ] ; then 
     echo "GIT is not installed"
-    dnf install git -y &>> $LOG_FILE_NAME 
+    dnf install git -y &>>$LOG_FILE_NAME 
     VALIDATE $? "GIT"
 else
     echo "GIT is already installed"

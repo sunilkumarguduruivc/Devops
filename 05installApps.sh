@@ -19,16 +19,18 @@ dnf list installed mysql
 
 if [ $? -ne 0 ] ; then 
     echo "MYQL is not installed"
-else
     dnf install mysql -y
     VALIDATE $? "MYSQL"
-    
+else
+    echo "MYSQL is already installed"
 fi
+
 dnf list installed git
 
 if [ $? -ne 0 ] ; then 
     echo "GIT is not installed"
-else
     dnf install git -y
     VALIDATE $? "GIT"
+else
+    echo "GIT is already installed"
 fi

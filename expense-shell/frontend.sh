@@ -34,7 +34,7 @@ CHECK_ROOT
 dnf install nginx -y &>>$LOG_FILE_NAME
 VALIDATE $? "NGINX installed"
 
-systemctl Enable nginx &>>$LOG_FILE_NAME
+systemctl enable nginx &>>$LOG_FILE_NAME
 VALIDATE $? "Enable nginx"
 
 systemctl start nginx &>>$LOG_FILE_NAME

@@ -15,10 +15,10 @@ LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
 VALIDATE(){
     if [ $1 -ne 0 ]; then
-        echo "ERROR: $2 installation failed."
+        echo "ERROR: $2 failed."
         exit 1
     else
-        echo "$2 installed successfully."
+        echo "$2  successfully."
     fi
 }
 CHECK_ROOT(){
@@ -31,7 +31,7 @@ echo "Script started execution at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
 CHECK_ROOT
 
-dnf list installed mysql-server &>>$LOG_FILE_NAME
+dnf  install mysql-server -y &>>$LOG_FILE_NAME
 VALIDATE $? "Installed MYSQL SERVER"
 
 systemctl enable mysqld &>>$LOG_FILE_NAME
@@ -42,10 +42,9 @@ VALIDATE $? "Starting MYSQL Server"
 
 PRIVATE_IP=$(hostname -I | awk '{print $1}') echo $PRIVATE_IP
 
-mysql -h $PRIVATE_IP -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_NAME
+mysql -h $PRIVATE_IP -u root -pExpenseApp@1 -e 'show databases;'
 
-if [ $? -ne 0 ]
-then
+if [ $? -ne 0 ] ; then
     echo "MySQL Root password not setup" &>>$LOG_FILE_NAME
     mysql_secure_installation --set-root-pass ExpenseApp@1
     VALIDATE $? "Setting Root Password"

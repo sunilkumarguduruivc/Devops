@@ -69,7 +69,7 @@ VALIDATE $? "mysql installed"
 
 PRIVATE_IP=$(hostname -I | awk '{print $1}')
 
-mysql -h "$PRIVATE_IP" -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE_NAME
+mysql -h '172.31.27.113' -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE_NAME
 VALIDATE $? "Setting up the transactions schema and tables"
 
 systemctl daemon-reload &>>$LOG_FILE_NAME

@@ -33,8 +33,8 @@ CHECK_ROOT
 dnf module disable nodejs -y &>>LOG_FILE_NAME
 VALIDATE $? "nodejs disabled" 
 
-dnf module enable nodejs -y &>>LOG_FILE_NAME
-VALIDATE $? "nodjs:20 enabled" 
+dnf module enable nodejs:20 -y &>>LOG_FILE_NAME
+VALIDATE $? "nodejs:20 enabled" 
 
 dnf install nodejs -y &>>LOG_FILE_NAME
 VALIDATE $? "nodejs installed"

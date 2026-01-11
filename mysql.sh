@@ -40,7 +40,7 @@ VALIDATE $? "Enabling MYSQL Server"
 systemctl start mysqld &>>$LOG_FILE_NAME
 VALIDATE $? "Starting MYSQL Server"
 
-PRIVATE_IP=$(hostname -I | awk '{print $1}'); echo $PRIVATE_IP
+PRIVATE_IP=$(hostname -I | awk '{print $1}')
 
 mysql -h "$PRIVATE_IP" -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_NAME
 

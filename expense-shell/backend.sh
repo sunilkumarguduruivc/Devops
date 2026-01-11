@@ -39,8 +39,8 @@ VALIDATE $? "nodejs:20 enabled"
 dnf install nodejs -y &>>LOG_FILE_NAME
 VALIDATE $? "nodejs installed"
 
-id expense
-if [ ?$ -ne 0 ] ; then
+id expense &>>LOG_FILE_NAME
+if [ $? -ne 0 ] ; then
     adduser expense &>>LOG_FILE_NAME
     VALIDATE $? "expense user created"
 else 

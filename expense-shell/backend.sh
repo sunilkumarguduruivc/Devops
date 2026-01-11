@@ -33,10 +33,10 @@ CHECK_ROOT
 dnf module disable nodejs -y &>>LOG_FILE_NAME
 VALIDATE $? "nodejs disabled" 
 
-dnf module enable node:js -y &>>LOG_FILE_NAME
+dnf module enable nodejs -y &>>LOG_FILE_NAME
 VALIDATE $? "nodjs:20 enabled" 
 
-dnf install nodjs -y &>>LOG_FILE_NAME
+dnf install nodejs -y &>>LOG_FILE_NAME
 VALIDATE $? "nodejs installed"
 
 id expense

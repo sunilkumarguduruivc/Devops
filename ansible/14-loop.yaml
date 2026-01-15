@@ -8,11 +8,11 @@
   tasks:
   - name: application 
     ansible.builtin.package:
-      name: "{{item.key}}"
-      state: "{{item.value}}"
-      loop: "{{apps_to_manage  | dict2items}}"
+      name: "{{ item.key }}"
+      state: "{{ item.value }}"
+      loop: "{{ apps_to_manage  | dict2items }}"
 
   - name: applicaton result
     ansible.builtin.debug:
-      msg: "{{item.key}} application has been set to {{item.present}}"
-    loop: "{{apps_to_manage | dict2items}}"
+      msg: "{{ item.key }} application has been set to {{ item.present }}"
+    loop: "{{ apps_to_manage | dict2items }}"

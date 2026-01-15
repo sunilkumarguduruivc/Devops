@@ -10,4 +10,4 @@
   - name: print hello2
     ansible.builtin.debug:
       msg: "Hello from task2"
-  when: counter == "12"
+    when: counter == "12"

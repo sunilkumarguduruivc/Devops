@@ -1,0 +1,11 @@
+- name: Configure mysql server
+  hosts: mysql
+  become: yes
+  vars:
+    mysql_root_password: ExpenseApp@1
+  tasks:
+    - name: install mysql-server app
+      ansible.builtin.package:
+        name: "mysql-server"
+        state: "present"
+    

@@ -1,0 +1,21 @@
+- name: Conditions with blocks
+  hosts: local
+  connection: local
+  vars:
+    ansible_os_family: "Debian"
+  tasks:
+    - name:
+      block:
+        - name: Stopping the service
+          ansible.builtin.debug:
+            msg: "Stopping the service"
+        - name: Deploy the code
+          ansible.builtin.commad: /bin/false
+      rescue:
+        - name: Rollback
+          ansible.builtin.debug:
+            msg: "Deployment Failed hence rolling back the changes"
+      always:
+        - name: Restarting the service
+          ansible.builtin.debug:
+            msg: "Restarting the service"

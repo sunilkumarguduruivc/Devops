@@ -1,7 +1,7 @@
 - name: Print Variables from Files
   hosts: local
   connection: local
-  vars:
+  vars_files:
   - course.yaml
   tasks:
   - name: Task to print variables from Files

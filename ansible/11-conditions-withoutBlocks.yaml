@@ -1,6 +1,8 @@
 - name: Conditions without block
   hosts: local
   connection: local
+  vars:
+    ansible_os_family: "Debian"
   tasks:
   - name: Stopping an service
     ansible.builtin.debug:

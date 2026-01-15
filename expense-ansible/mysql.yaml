@@ -20,7 +20,7 @@
     - name: connect to mysql
       community.mysql.mysqlinfo:
         login_user: "root"
-        login_password: {{mysql_root_password}}
+        login_password: "{{ mysql_root_password }}"
         login_host: mysql
       register: mysqlinfo
       ignore_errors: true

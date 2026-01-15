@@ -1,0 +1,13 @@
+- name: test loop sequence
+  hosts: local
+  connection: local
+  vars:
+    counter: "12"
+  tasks:
+  - name: print hello1
+    ansible.builtin.debug:
+      msg: "Hello from task1"
+  - name: print hello2
+    ansible.builtin.debug:
+      msg: "Hello from task2"
+  when: counter == "12"

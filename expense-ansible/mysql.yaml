@@ -8,10 +8,10 @@
       ansible.builtin.package:
         name: "{{ item }}"
         state: "present"
-    loop:
-      - mysql-server
-      - cryptography
-      - PyMySQL
+      loop:
+        - mysql-server
+        - cryptography
+        - PyMySQL
       
     - name: enable mysql service
       ansible.builtin.service:

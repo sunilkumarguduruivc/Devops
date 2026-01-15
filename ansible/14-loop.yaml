@@ -1,4 +1,5 @@
 - name: Play to loop
+  become: yes
   hosts: mysql
   vars:
     apps_to_manage:

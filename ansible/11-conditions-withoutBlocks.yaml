@@ -1,0 +1,17 @@
+- name: Conditions without block
+  hosts: local
+  connection: local
+  tasks:
+  - name: Stopping an service
+    ansible.builtin.debug:
+      msg: "Stopping the service"
+    when: ansible_os_family == "Debian"
+  
+ # - name: Deploy code
+ #   ansible.builtin.command: /bin/false
+ #   when: ansible_os_family == "Debian"
+  
+  - name: Restarting service
+    ansible.builtin.debug:
+      msg: "Restart the service"
+    when: ansible_os_family == "Debian"

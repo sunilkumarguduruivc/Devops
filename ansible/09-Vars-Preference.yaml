@@ -11,7 +11,7 @@
     private: false
   tasks:
   - name: print variables
-    vars:
-      COURSE: "AWS with Devops from task"
+   # vars:
+    #  COURSE: "AWS with Devops from task"
     ansible.builtin.debug:
       msg: "Course is {{COURSE}}, Trainer is {{TRAINER}}, Duration is {{DURATION}}"

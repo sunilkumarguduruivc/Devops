@@ -2,9 +2,9 @@
   hosts: mysql
   tasks:
     - name: print hello world
-      ansible.builtin.debug
+      ansible.builtin.debug:
       msg: "Hello world"
 
     - name: print hello ivc
-      ansible.builtin.debug
+      ansible.builtin.debug:
       msg: "Hello sunil"

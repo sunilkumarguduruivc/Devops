@@ -2,8 +2,8 @@
   hosts: local
   connection: local
   vars:
-    name: "Sunilkumarivc"
+    myname: "Sunilkumarivc"
   tasks:
     name: Print x value
     ansible.builtin.debug:
-      msg: "Print the name {{name}}"
+      msg: "Print the name {{myname}}"

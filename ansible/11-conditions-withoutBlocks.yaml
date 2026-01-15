@@ -9,10 +9,9 @@
       msg: "Stopping the service"
     when: ansible_os_family == "Debian"
   
- - name: Deploy code
-   ansible.builtin.debug: 
-    msg: "nothing"
-   when: ansible_os_family == "Debian"
+  - name: Deploy code
+    ansible.builtin.command: /bin/false 
+    when: ansible_os_family == "Debian"
   
   - name: Restarting service
     ansible.builtin.debug:

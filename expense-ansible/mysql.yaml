@@ -4,15 +4,18 @@
   vars:
     mysql_root_password: ExpenseApp@1
   tasks:
-    - name: install mysql-server app
-      ansible.builtin.package:
+    - name: install dependancies
+      ansible.builtin.pip:
         name: "{{ item }}"
-        state: "present"
+        executable: "pip3"
       loop:
-        - mysql-server
         - cryptography
         - PyMySQL
-      
+    - name: install mysql-server
+      ansible.builtin.package:
+        name: "mysql-server"
+        state: "present"
+            
     - name: enable mysql service
       ansible.builtin.service:
         name: "mysqld"

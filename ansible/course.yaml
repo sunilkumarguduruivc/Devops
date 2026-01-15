@@ -1,4 +1,4 @@
-COURSE: "AWS with Devops"
-TRAINER: "Sunilkumarivc"
-DURATION: "120 hours"
+COURSE: "AWS with Devops from yaml file"
+TRAINER: "Sunilkumarivc from yaml file"
+DURATION: "120 hours from yaml file"
 GREET: "From Files"

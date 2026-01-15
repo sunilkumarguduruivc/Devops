@@ -1,0 +1,17 @@
+- name: Variables Preference 
+  hosts: local
+  connection: local
+  vars_files:
+  - course.yaml
+  vars:
+    COURSE: "AWS with Devops from Play"
+  vars_prompt:
+  - name: COURSE
+    prompt: "enter course name"
+    private: false
+  tasks:
+  - name: print variables
+    vars:
+      COURSE: "AWS with Devops from task"
+    ansible.builtin.debug:
+      msg: "Course is {{COURSE}}, Trainer is {{TRAINER}}, Duration is {{Duration}}"

@@ -1,0 +1,12 @@
+- name: Install and Run Nginx
+  hosts: mysql
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present
+    - name: Run Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes

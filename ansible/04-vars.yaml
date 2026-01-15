@@ -4,6 +4,6 @@
   vars:
     myname: "Sunilkumarivc"
   tasks:
-    name: Print x value
+  - name: Print x value
     ansible.builtin.debug:
-      msg: "Print the name {{myname}}"
+      msg: "Print name: {{myname}}"

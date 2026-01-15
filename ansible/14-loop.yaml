@@ -10,7 +10,7 @@
     ansible.builtin.package:
       name: "{{ item.key }}"
       state: "{{ item.value }}"
-      loop: "{{ apps_to_manage  | dict2items }}"
+    loop: "{{ apps_to_manage  | dict2items }}"
 
   - name: applicaton result
     ansible.builtin.debug:

@@ -5,8 +5,6 @@
     ansible_os_family: "Debian"
   tasks:
     - name:
-      ansible.builtin.debug:
-        msg: "os family {{ansible_os_family}}"
       block:
         - name: Stopping the service
           ansible.builtin.debug:

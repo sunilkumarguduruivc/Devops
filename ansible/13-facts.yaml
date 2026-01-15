@@ -1,0 +1,6 @@
+- name: print the facts
+  hosts: mysql
+  tasks:
+    - name: task to prin the facts
+      ansible.builtin.debug:
+        msg: "facts: {{ansible_facts}}"

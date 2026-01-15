@@ -16,4 +16,19 @@
       ansible.builtin.service:
         name: "mysqld"
         state: "started"
-      
+
+    - name: connect to mysql
+      community.mysql.mysqlinfo:
+        login_user: "root"
+        login_password: {{mysql_root_password}}
+        login_host: mysql
+      register: mysqlinfo
+      ignore_errors: true
+
+    - name: print mysql info
+      ansible.builtin.debug:
+        msg: "mysql info: {{mysqlinfo}}"
+    
+    - name: setup root password
+      ansible.builtin.command: " mysql_server --set-root-pass ExpenseApp@1"
+      when: mysqlinfo.failed is true

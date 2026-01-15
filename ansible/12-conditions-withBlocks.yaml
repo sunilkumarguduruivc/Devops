@@ -10,7 +10,7 @@
           ansible.builtin.debug:
             msg: "Stopping the service"
         - name: Deploy the code
-          ansible.builtin.commad: /bin/false
+          ansible.builtin.command: /bin/false
       rescue:
         - name: Rollback
           ansible.builtin.debug:

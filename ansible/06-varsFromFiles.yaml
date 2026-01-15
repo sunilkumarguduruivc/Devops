@@ -6,4 +6,4 @@
   tasks:
   - name: Task to print variables from Files
     ansible.builtin.debug:
-      debug: "Course is {{COURSE}}, Trainer is {{TRAINER}}, Duration is {{DURATION}}"
+      msg: "Course is {{COURSE}}, Trainer is {{TRAINER}}, Duration is {{DURATION}}"

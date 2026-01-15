@@ -11,7 +11,6 @@
     name: "{{item.key}}"
     state: "{{item.value}}"
     loop: "{{apps_to_manage  | dict2items}}"
-    
   - name: applicaton result
     ansible.builtin.debug:
       msg: "{{item.key}} application has been set to {{item.present}}"

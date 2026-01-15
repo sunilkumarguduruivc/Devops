@@ -3,9 +3,9 @@
   hosts: mysql
   vars:
     apps_to_manage:
-      nginx: present
-      mysql: present
-      nodejs: present      
+      nginx: absent
+      mysql: absent
+      nodejs: absent     
   tasks:
   - name: application 
     ansible.builtin.package:

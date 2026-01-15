@@ -3,8 +3,4 @@
   tasks:
     - name: print hello world
       ansible.builtin.debug:
-      msg: "Hello world"
-
-    - name: print hello ivc
-      ansible.builtin.debug:
-      msg: "Hello sunil"
+        msg: "Hello world"

@@ -19,3 +19,4 @@
         - name: Restarting the service
           ansible.builtin.debug:
             msg: "Restarting the service"
+      when: ansible_os_family == "Debian"

@@ -54,3 +54,16 @@
         state: started
         enabled: true
 
+    - name: import SQL data
+      community.mysql.mysql_db:
+        state: import
+        name: all
+        login_user: root
+        login_password: "ExpenseApp@1"
+        login_host: "{{ mysql_server }}"
+        target: /app/schema/backend.sql
+
+    - name: Restart backend services
+      ansible.builtin.systemd_service:
+        name: backend
+        state: restarted

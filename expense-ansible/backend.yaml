@@ -4,13 +4,54 @@
   tasks: 
     - name: disable nodejs
       ansible.builtin.command: dnf module disable nodejs -y
+
     - name: enable nodejs 20 version
       ansible.builtin.command: dnf module enable nodejs:20 -y
+
     - name: install nodejs package 
       ansible.builtin.package:
-        name: "nodejs"
+        name: {{item}}
         state: "present"
+      loop:
+      - nodejs
+      - mysql
     - name: create an expense user
       ansible.builtin.user:
         name: "expense"
 
+    - name: create an /app directory
+      ansible.builtin.file:
+        path: /app
+        state: directory
+    
+    - name: Download the backend file 
+      ansible.builtin.get_url:
+        url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+        dest: /tmp/backend.zip
+    
+    - name: unzip the backend file
+      ansible.builtin.unarchieve:
+        src: /tmp/backend.zip
+        dest: /app
+        remote_src: yes
+
+    - name: install depedencies
+      community.general.npm:
+        path: /app
+    
+    - name: transfer backend service file
+      ansible.builtin.copy:
+        src: ./backend.service
+        dest: /etc/systemd/system/backend.service
+        remote_src: yes
+
+    - name: dameon reload
+      ansible.builtin.systemd_service:
+        daemon_reload: true
+
+    - name: enable and start services
+      ansible.builtin.systemd_service:
+        name: backend
+        state: started
+        enabled: true
+  

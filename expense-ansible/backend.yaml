@@ -7,6 +7,13 @@
 
     - name: enable nodejs 20 version
       ansible.builtin.command: dnf module enable nodejs:20 -y
+    
+    - name: install dependancies
+      ansible.builtin.pip:
+        name: "{{ item }}"
+      loop:
+      - cryptography
+      - PyMySQL
 
     - name: install nodejs package 
       ansible.builtin.package:
@@ -15,7 +22,7 @@
       loop:
       - nodejs
       - mysql
-      - PyMySQL
+      
     - name: create an expense user
       ansible.builtin.user:
         name: "expense"

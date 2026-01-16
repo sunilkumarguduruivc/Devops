@@ -2,7 +2,7 @@
   hosts: mysql-server
   become: yes
   vars:
-    mysql_root_password: "ExpenseApp@1"
+    mysql_root_password: ExpenseApp@1
   tasks:
     - name: install dependancies
       ansible.builtin.pip:
@@ -27,16 +27,16 @@
 
     - name: connect to mysql
       community.mysql.mysql_info:
-        login_user: "root"
-        login_password: "{{ mysql_root_password }}"
+        login_user: root
+        login_password: " {{ mysql_root_password }} "
         login_host: mysql
       register: mysqlinfo
       ignore_errors: true
 
     - name: print mysql info
       ansible.builtin.debug:
-        msg: "mysql info: {{mysqlinfo}}"
+        msg: " mysql info: {{mysqlinfo}} "
     
     - name: setup root password
-      ansible.builtin.command: "mysql_secure_installation --set-root-pass {{ mysql_root_password }}"
+      ansible.builtin.command: " mysql_secure_installation --set-root-pass {{ mysql_root_password }} "
       when: mysqlinfo.failed is true

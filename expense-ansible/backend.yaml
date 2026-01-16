@@ -10,7 +10,7 @@
 
     - name: install nodejs package 
       ansible.builtin.package:
-        name: {{item}}
+        name: "{{ item }}"
         state: "present"
       loop:
       - nodejs
@@ -54,4 +54,4 @@
         name: backend
         state: started
         enabled: true
-  
+

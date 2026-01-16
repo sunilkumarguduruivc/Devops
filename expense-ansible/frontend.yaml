@@ -28,7 +28,7 @@
     - name: unzip the frontend files
       ansible.builtin.unarchive:
         src: /tmp/frontend.zip
-        dest: /tmp
+        dest: /usr/share/nginx/html
         remote_src: yes 
     
     - name: transfer expense configuration

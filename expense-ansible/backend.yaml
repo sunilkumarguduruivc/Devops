@@ -1,5 +1,6 @@
 - name: Playbook to configure backend mysql-server
   hosts: backend
+  become: true
   tasks: 
     - name: disable nodejs
       ansible.builtin.command: dnf module disable nodejs -y
@@ -12,4 +13,4 @@
     - name: create an expense user
       ansible.builtin.user:
         name: "expense"
-        
+

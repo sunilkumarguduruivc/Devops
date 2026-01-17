@@ -52,10 +52,6 @@
         src: ./backend.service
         dest: /etc/systemd/system/backend.service
 
-    - name: dameon reload
-      ansible.builtin.systemd_service:
-        daemon_reload: true
-
     - name: enable and start services
       ansible.builtin.systemd_service:
         name: backend

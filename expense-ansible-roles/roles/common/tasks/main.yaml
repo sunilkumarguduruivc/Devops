@@ -1,0 +1,22 @@
+- name: remove exisisting directory
+  tags:
+  - deployment
+  ansible.builtin.file:
+    path: " { { APP_LOCATION } }"
+    state: "absent"
+
+- name: create app directory
+  tags:
+  - deployment
+  ansible.builtin.file:
+    path: " {{ APP_LOCATION }}"
+    state: "present"
+
+
+- name: Download app code
+  tags:
+  - deployment
+  ansible.builtin.unarchive:
+  src: "https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{ COMPONENT }}-v2.zip"
+  dest: " {{ APP_LOCATION }}"
+  remote_src: yes

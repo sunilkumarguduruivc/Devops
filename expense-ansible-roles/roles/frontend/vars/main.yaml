@@ -1,0 +1,3 @@
+BACKEND_HOST: 172.31.19.112
+APP_LOCAION: /usr/share/nginx/html
+COMPONENT: frontend

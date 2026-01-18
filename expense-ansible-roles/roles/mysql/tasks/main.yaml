@@ -19,8 +19,9 @@
 
     - name: debug variables
       ansible.builtin.debug:
-        - msg: "host: {{ mysql_host }}"
-        - msg:  "password: {{ mysql_root_password }}"
+        msg:
+        - "host: {{ mysql_host }}"
+        - "password: {{ mysql_root_password }}"
       
     - name: connect to mysql
       community.mysql.mysql_info:

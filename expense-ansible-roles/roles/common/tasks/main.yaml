@@ -12,11 +12,17 @@
     path: " {{ APP_LOCATION }}"
     state: "present"
 
+- name: Download app 
+  tags:
+  - deployment
+  ansible.builtin.get_url:
+  url: "https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{ COMPONENT }}-v2.zip"
+  dest: "{{ APP_LOCATION }}/{{ COMPONENT }}-v2.zip"
 
-- name: Download app code
+- name: Unarchieve app code
   tags:
   - deployment
   ansible.builtin.unarchive:
-  src: "https://expense-builds.s3.us-east-1.amazonaws.com/expense-{{ COMPONENT }}-v2.zip"
-  dest: " {{ APP_LOCATION }}"
+  src: "{{ APP_LOCATION }}/{{ COMPONENT }}-v2.zip"
+  dest: "{{ APP_LOCATION }}"
   remote_src: yes

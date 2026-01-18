@@ -1,4 +1,3 @@
-  tasks:
     - name: install nginx
       ansible.builtin.package:
         name: "{{ item }}"
